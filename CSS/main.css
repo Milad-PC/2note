@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Lalehzar';
+    src: url('../fonts/Lalezar-Regular.ttf') format('truetype');
+}
+
+section {
+    font-family: 'Lalehzar', 'iransans';
+}
