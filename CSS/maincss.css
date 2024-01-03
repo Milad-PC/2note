@@ -1,0 +1,425 @@
+body,
+html,
+.container {
+    margin: 0 auto;
+}
+img{
+    padding: 0;
+}
+.row{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.container{
+
+    max-width: 100% !important;
+}
+
+.container-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.margin-5 {
+    margin: 5px;
+}
+
+.margin-10 {
+    margin: 10px;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.margin-30 {
+    margin: 30px;
+}
+
+.margin-50 {
+    margin: 50px;
+}
+
+.margin-100 {
+    margin: 100px;
+}
+
+.margin-300 {
+    margin: 300px;
+}
+
+.top-5 {
+    margin-top: 5px;
+}
+
+.top-10 {
+    margin-top: 10px;
+}
+
+.top-20 {
+    margin-top: 20px;
+}
+
+.top-30 {
+    margin-top: 30px;
+}
+
+.top-50 {
+    margin-top: 50px;
+}
+
+.top-100 {
+    margin-top: 100px;
+}
+
+.top-150 {
+    margin-top: 150px;
+}
+
+.top-300 {
+    margin-top: 300px;
+}
+
+.bottom-5 {
+    margin-bottom: 5px;
+}
+
+.bottom-10 {
+    margin-bottom: 10px;
+}
+
+.bottom-20 {
+    margin-bottom: 20px;
+}
+
+.bottom-30 {
+    margin-bottom: 30px;
+}
+
+.bottom-50 {
+    margin-bottom: 50px;
+}
+
+.bottom-100 {
+    margin-bottom: 100px;
+}
+
+.bottom-300 {
+    margin-bottom: 300px;
+}
+
+.right-5 {
+    margin-right: 5px;
+}
+
+.right-10 {
+    margin-right: 10px;
+}
+
+.right-20 {
+    margin-right: 20px;
+}
+
+.right-30 {
+    margin-right: 30px;
+}
+
+.right-50 {
+    margin-right: 50px;
+}
+
+.right-100 {
+    margin-right: 100px;
+}
+
+.right-300 {
+    margin-right: 300px;
+}
+
+.left-5 {
+    margin-left: 5px;
+}
+
+.left-10 {
+    margin-left: 10px;
+}
+
+.left-20 {
+    margin-left: 20px !important;
+}
+
+.left-30 {
+    margin-left: 30px;
+}
+
+.left-50 {
+    margin-left: 50px;
+}
+
+.left-100 {
+    margin-left: 100px;
+}
+
+.left-300 {
+    margin-left: 300px;
+}
+
+.radius-5 {
+    border-radius: 5px;
+}
+
+.radius-10 {
+    border-radius: 10px;
+}
+
+.radius-15 {
+    border-radius: 15px;
+}
+
+.radius-20 {
+    border-radius: 20px;
+}
+
+.radius-30 {
+    border-radius: 30px;
+}
+
+.radius-50 {
+    border-radius: 50px;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.padding-1 {
+    padding: 1%;
+}
+
+.padding-2 {
+    padding: 2%;
+}
+
+.padding-3 {
+    padding: 3%;
+}
+
+.padding-5 {
+    padding: 5%;
+}
+
+.padding-6 {
+    padding: 6%;
+}
+
+.padding-10 {
+    padding: 10%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-60 {
+    width: 60%;
+}
+.w-50{
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.shadow-neu {
+    box-shadow: 6px 6px 15px #c5c5c5, -6px -6px 15px #ffffff;
+}
+
+.shadow-s {
+    box-shadow: 1px 1px 3px #b3b5c9;
+}
+
+.shadow-not {
+    box-shadow: none !important;
+}
+
+
+.yekan {
+    font-family: "yekan";
+}
+.dastnevis{
+    font-family: "dastnevis";
+}
+.textcenter {
+    text-align: center;
+}
+
+.textright {
+    text-align: right;
+}
+
+.textleft {
+    text-align: left;
+}
+
+.textjustify {
+    text-align: justify;
+}
+
+.textwhite {
+    color: white !important;
+}
+
+.textblack {
+    color: black;
+}
+
+.textblue {
+    color: #242F9B;
+}
+
+.textlightblue {
+    color: #646FD4 !important;
+}
+
+.textgray {
+    color: rgb(88, 88, 88);
+}
+
+.textorange {
+    color: #FD7600;
+}
+
+.textred {
+    color: #E41704;
+}
+
+.textlightgray {
+    color: rgb(211, 211, 211);
+}
+
+.textwhite {
+    color: white;
+}
+
+.textgold {
+    color: #BF953F;
+}
+
+.decoration-dlt {
+    text-decoration: none;
+}
+.font-12 {
+    font-size: 12px;
+}
+.font-14 {
+    font-size: 14px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.font-28 {
+    font-size: 28px;
+}
+.textzanco{
+color: rgba(16, 94, 197, 0.849) !important;
+}
+
+.bred {
+    border: 1px solid red;
+}
+
+.bgray {
+    border: 1px solid gray;
+}
+
+.bnot {
+    border: none;
+}
+
+.bnot:hover,
+.bnot:active {
+    border: none;
+    outline: none;
+}
+
+.bg-blue {
+    background-color: #242F9B !important;
+}
+
+.bg-red {
+    background-color: #E41704 !important;
+}
+
+.bg-orange {
+    background-color: #FD7600 !important;
+}
+
+.bg-lightblue {
+    background-color: #646FD4 !important;
+}
+
+.bg-not {
+    background-color: transparent !important;
+}
+
+.flowauto {
+    overflow: auto;
+}
+
+.w-fit {
+    width: fit-content;
+}
+.bg-zanco1{
+    background-color: #4267df;
+}
+.bg-zanco2{
+    background-color: #2347bd;
+}
+.trans{
+    transition: all ease .4s;
+}

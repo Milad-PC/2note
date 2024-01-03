@@ -1,0 +1,175 @@
+@font-face {
+    font-family: "dastnevis";
+    src: url("../FONT/danstevis.otf");
+    src: url("../FONT/danstevis.otf") format("embedded-opentype"),
+     url("../FONT/danstevis.otf") format("truetype");
+}
+@font-face {
+    font-family: "yekan";
+    src: url("../FONT/iranyekanwebblackfanum.eot");
+    src: url("../FONT/iranyekanwebblackfanum.eot?#iefix") format("embedded-opentype"),
+     url("../FONT/iranyekanwebblackfanum.ttf") format("truetype");
+}
+body{
+    overflow: hidden;
+    width: 100%;
+}
+/* container */
+.container{
+    width: 100%;
+background-color: white;
+padding: 0px !important;
+overflow: hidden;
+}
+.container-inner{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+/* heading part */
+.heading{
+    background-color:#371f17 ;
+    position: sticky;
+    padding: 10px;
+    z-index: 100;
+}
+.heading span{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    background-color: #f5431a;
+    border-radius: 50px;
+}
+.heading span::after{
+    display: none;
+}
+.heading span i{
+    font-size: 32px;
+}
+.heading .dropdown-menu,.category .col-3 .dropdown-menu{
+    width: 320px;
+    padding: 30px 15px;
+    box-shadow: 2px 2px 8px rgba(182, 182, 182, 0.627);
+    z-index: 1000;
+}
+.heading .dropdown-menu .btn ,.category .col-3 .dropdown-menu .btn{
+    background-color: #371f17;
+    color: white;
+}
+.heading .col-8{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* category part */
+.category{
+    background-color: #F3F2F2;
+    padding: 0px;
+    box-shadow: 0px 4px 8px 0px #D6DADE;
+    transition: all ease 1s;
+}
+.category .col-3 {
+    display: flex;
+    justify-content: flex-end;
+}
+.category .col-3 span{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    background-color: #371f17;
+    border-radius: 50px;
+    padding: 0px;
+    margin: 5px;
+}
+.category .col-3 span i{
+    font-size: 32px;
+}
+.category p{
+    font-size: 20px;
+}
+.category .col-2 i{
+    color: #f5431a;
+    font-size: 24px;
+}
+.category .dropdown .btn::after{
+    display: none;
+}
+.category .col-2 .dropdown .btn{
+    padding: 0 !important;
+}
+.category .col-2 .dropdown .btn:focus{
+    outline: 0 !important;
+    border: none;
+    box-shadow: none !important;
+}
+.category .col-2 .dropdown ul{
+    padding: 5px;
+    border-radius: 20px;
+    border-color: #D60000;
+    width: fit-content;
+}
+
+.category .col-2 .dropdown ul li:first-child{
+    background-color: #fff8d3;
+    border-radius: 20px;
+}
+.category .col-2 .dropdown ul li:first-child i{
+color: rgb(255, 191, 0);
+}
+.category .col-2 .dropdown ul li:nth-child(2){
+background-color: #ff9d9d;
+border-radius: 20px;
+margin-top: 5px;
+}
+.category .col-2 .dropdown ul li:first-child i{
+    color: #D60000;
+}
+.category .catheading {
+    margin: 0px;
+    position: relative;
+}
+.category .catheading  .col-7 p{
+    color: #371f17;
+}
+.category .catbody {
+   display: none;
+   padding: 0px !important;
+   transition: all ease 1s;
+   overflow: hidden;
+}
+.category .catbody .job{
+    background-color: white;
+height: fit-content;
+box-shadow: 2px 2px 8px rgba(182, 182, 182, 0.627);
+}
+.category.active .catbody{
+   /* height: fit-content !important;*/
+   display: flex;
+}
+
+.category .catbody .job .form-check-input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+}
+
+.category .catbody .job .form-check-input:checked{
+    background-color: red;
+    box-shadow: none;
+}
+.category .catbody  :has(input:checked){
+    background-color: #fcc7d1;
+}
+/*catheading-inner*/
+.catheading-inner{
+    position: absolute;
+    height: 100%;
+    width: 0px;
+    left: 0;
+    top: 0;
+    background-color: #e9ddcb;
+    z-index: 0;
+    padding: 0;
+    transition: all ease-in-out .8s;
+}
+

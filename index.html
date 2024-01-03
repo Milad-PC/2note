@@ -1,78 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+            integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="stylesheet" href="CSS/maincss.css">
+        <!--owl carousel-->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+            integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+            integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="CSS/bootstrap.rtl.min.css" rel="stylesheet">
-    <link href="CSS/font-awesome.min.css" rel="stylesheet">
-    <link href="CSS/main.css" rel="stylesheet">
+            <!--bootstrap-->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+            <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+     
+    </head>
 
-    <!-- add manifest-->
-    <link rel="manifest" href="manifest.json"/>
-    <!-- icon bayad bade manifest bashe-->
-    <link rel="shortcut icon" href="favicon.ico">
-    
-    <title>یادداشت کن</title>
-</head>
+    <body>
+        <div class="container w-100 vh-100 overflow-hidden">
+            <div class="container-inner w-100  overflow-scroll radius-20 p-2">
+              <div class="row heading w-100 radius-10">
+                <div class="col-4 v-center">
+                    <img class="w-100 center" src="IMG/logo.png" alt="">
+                </div>
+                <div class="col-8">
+                   <div class="dropdown">
+                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
+                    </span>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <form action="">
+                            <input type="text" class="form-control p-3 yekan" id="exampleFormControlInput1" placeholder="نام دسته بندی خود را وارد کنید">
+                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید">
+                        </form>
+                      </li>
 
-<body>
-
-    <!-- Start Code -->
-    <section class="vh-100" style="background-color: #eee;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-lg-9 col-xl-7">
-                    <div class="card rounded-3">
-                        <div class="card-body p-4">
-
-                            <h4 class="text-center my-3 pb-3">یادداشت من</h4>
-
-                            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
-
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="اینجا یادداشت کن">
-                                    <button type="submit" class="btn btn-primary">اضافه</button>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+                <div class="row startjobs top-30">
+                    <!--this must be placed in foreach-->
+                    <div class="row category w-100  radius-10 top-20" >
+                        <div class="catheading row w-100 v-center">
+                            <div class="col-2">
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots "></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                      <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="col-7 v-center">
+                                <p class="yekan m-0" onclick="showjobs(0)">خرید خونه</p>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown">
+                                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li>
+                                        <form action="">
+                                            <input type="text" class="form-control p-3 yekan" id="exampleFormControlInput1" placeholder="نام کار خود را وارد کنید">
+                                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید">
+                                        </form>
+                                      </li>
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="catheading-inner radius-10"></div>
+                        </div>
+                        <div class="catbody row p-2 top-10">
+                            <!--this must be placed in -->
+                            <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
                                 </div>
-                            </form>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                              <!--this must be placed in -->
+                              <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                              <!--this must be placed in -->
+                              <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <!--this must be placed in foreach-->
+                      <div class="row category w-100  radius-10 top-20">
+                        <div class="catheading row w-100 v-center">
+                            <div class="col-2">
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots "></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                      <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="col-7 v-center">
+                                <p class="yekan m-0" onclick="showjobs(1)">خرید خونه</p>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown">
+                                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li>
+                                        <form action="">
+                                            <input type="text" class="form-control p-3 yekan" id="exampleFormControlInput1" placeholder="نام کار خود را وارد کنید">
+                                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید">
+                                        </form>
+                                      </li>
+                
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="catheading-inner radius-10"></div>
 
-                            <table class="table mb-4">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col"><i class="fa fa-list" aria-hidden="true"></i></th>
-                                        <th scope="col"><i class="fa fa-tachometer" aria-hidden="true"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Buy groceries for next week</td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                            <button type="submit" class="btn btn-success ms-1"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
+                        </div>
+                        <div class="catbody row p-2 top-10">
+                            <!--this must be placed in -->
+                            <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                              <!--this must be placed in -->
+                              <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                              <!--this must be placed in -->
+                              <div class="job row p-3 radius-10 top-10">
+                                <div class="col-10 v-center">
+                                    <div class="form-check w-100">
+                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
+                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
+                                          گوجه
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown">
+                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots "></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
+                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="footer mt-auto py-3">
-                    <img src="https://lightcompany.ir/wp-content/uploads/2022/01/logo-light-mini.png" class="" style="width: 32px;" />
-                    <span class="text-body-secondary">طراحی شده توسط گروه <a class="text-decoration-none" href="https://lightcompany.ir/">لایت کمپانی</a></span>
-                </div>
+             
+               
             </div>
         </div>
-    </section>
-    <!-- End Code -->
-    <script src="JS/jquery-3.6.0.slim.min.js"></script>
-    <script src="JS/popper.min.js"></script>
-    <script src="JS/bootstrap.bundle.min.js"></script>
-</body>
-
+        
+      
+ 
+        <script src="JS/index.js"></script>
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    </body>
 </html>
