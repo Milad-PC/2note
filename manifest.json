@@ -1,0 +1,45 @@
+{
+    "dir":"rtl",
+    "lang":"fa-IR",
+    "name":"2 NOTE todo list",
+    "short_name":"2NOTE",
+    "description":"Light COmpany Free Todo List PWA",
+    "start_url":"/index.html?utm_source=homescreen",
+    "theme_color":"#fdc763",
+    "background_color":"#fdc763",
+    "scope":".",
+    "orientation":"portrait-primary",
+    "display":"standalone",
+    "icons":[
+        {
+            "src":"IMG/favicon_32.png",
+            "type":"image/png",
+            "sizes":"32x32"
+        },
+        {
+            "src":"IMG/favicon_64.png",
+            "type":"image/png",
+            "sizes":"64x64"
+        },
+        {
+            "src":"IMG/favicon_128.png",
+            "type":"image/png",
+            "sizes":"128x128"
+        },
+        {
+            "src":"IMG/favicon_256.png",
+            "type":"image/png",
+            "sizes":"256x256"
+        },
+        {
+            "src":"IMG/favicon_512.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        },
+        {
+            "src":"IMG/favicon_1024.png",
+            "type":"image/png",
+            "sizes":"1024x1024"
+        }
+    ]
+}
