@@ -33,4 +33,31 @@ p[hi].classList.toggle("active");
       progress[input].style.width = `${width}%`;
   }
 
-  
+
+  // PWA
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',function(){
+      navigator.serviceWorker
+    .register('/sw.js')
+    .then(function(){
+      console.log('SW Registered');
+    })
+    .catch(function(err){
+      console.log('SW Error',err);
+    });
+    });
+  }
+
+  //Install promp when not installed
+  if(document.location.pathname != '/install.html'){
+    if(!document.cookie.startsWith('ShowedInstall=true')){
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        var d = new Date();
+        d.setTime(d.getTime() + (30*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = "ShowedInstall=true;" + expires + ";path=/";
+        window.location = 'install.html';
+      });
+    }
+  }

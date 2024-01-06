@@ -40,6 +40,17 @@
             "src":"IMG/favicon_1024.png",
             "type":"image/png",
             "sizes":"1024x1024"
+        },
+        {
+            "src":"IMG/favicon_196.png",
+            "sizes": "196x196",
+            "type": "image/png"
+        },
+        {
+            "src":"IMG/maskable_icon_x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
