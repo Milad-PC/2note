@@ -7,7 +7,10 @@ const STATIC_ASSESTS = [
     ,'/FONT/danstevis.otf','/FONT/iranyekanwebblackfanum.eot','/FONT/iranyekanwebblackfanum.ttf',
     '/FONT/Morabba-Black.ttf','/FONT/Morabba-Bold.ttf','/FONT/Morabba-ExtraBold.ttf','/FONT/Morabba-Heavy.ttf',
     '/FONT/Morabba-Light.ttf','/FONT/Morabba-Medium.ttf','/FONT/Morabba-Regular.ttf','/FONT/Morabba-SemiBold.ttf',
-    '/FONT/Morabba-UltraLight.ttf','/CSS/bootstrap.rtl.min.css'
+    '/FONT/Morabba-UltraLight.ttf','/CSS/bootstrap.rtl.min.css',
+    '/CSS/bootstrap-icons-v1-10.css','/CSS/bootstrap-icons-v1-11.css','/CSS/fonts/bootstrap-icons.woff','/CSS/fonts/bootstrap-icons.woff2',
+    '/CSS/owl.carousel.min.css','/CSS/owl.theme.default.min.css','/JS/owl.carousel.min.js',
+    'JS/bootstrap.bundle.min.js'
 ];
 
 self.addEventListener('install',function(event){
