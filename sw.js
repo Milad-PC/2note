@@ -82,7 +82,6 @@ self.addEventListener('fetch',function(event){
 });
 */
 // ========  3. Cache First , falling back to network
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 self.addEventListener('fetch',function(event){
     event.respondWith(
         caches.match(event.request)
