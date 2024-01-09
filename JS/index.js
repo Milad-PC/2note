@@ -240,3 +240,23 @@ p[hi].classList.toggle("active");
     console.log('Task deleted successfully with key' + taskId);
   };
   }
+
+function AddToNote(){
+  var x = document.getElementById('NoteAdder').value;
+  document.getElementById('NoteAdder').value = '';
+
+}
+  
+function AddToTasks(noteId,TaskName){
+  var x = document.getElementById('NoteAdder').value;
+  document.getElementById('NoteAdder').value = '';
+
+}
+
+function ShowNotes(){
+  let elmnt = document.getElementById('startjobs');
+
+}
+function ShowTasks(){
+
+}
