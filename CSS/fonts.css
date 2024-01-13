@@ -1,0 +1,34 @@
+
+
+@font-face {
+    font-family: "moraba-ul";
+    src: url("../font/Morabba-UltraLight.ttf");
+}
+@font-face {
+    font-family: "moraba-l";
+    src: url("../font/Morabba-Light.ttf");
+}
+@font-face {
+    font-family: "moraba-m";
+    src: url("../font/Morabba-Medium.ttf");
+}
+@font-face {
+    font-family: "moraba-sm";
+    src: url("../font/Morabba-SemiBold.ttf");
+}
+@font-face {
+    font-family: "moraba-b";
+    src: url("../font/Morabba-Bold.ttf");
+}
+@font-face {
+    font-family: "moraba-xb";
+    src: url("../font/Morabba-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "moraba-black";
+    src: url("../font/Morabba-Black.ttf");
+}
+@font-face {
+    font-family: "moraba-heavy";
+    src: url("../font/Morabba-Heavy.ttf");
+}
