@@ -1,38 +1,12 @@
-// Add slideDown animation to Bootstrap dropdown when expanding.
-$('.dropdown').on('show.bs.dropdown', function() {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-  });
+var jobs=document.querySelector(".jobs");
+var headingheight=(document.querySelector(".heading").offsetHeight/window.innerHeight)*100;
+var mainheight=(document.querySelector(".jobs-carousel").offsetHeight/window.innerHeight)*100;
+var pluss=100 -(mainheight + headingheight) - 10;
+jobs.style.height=pluss+"vh";
 
-  // Add slideUp animation to Bootstrap dropdown when collapsing.
-  $('.dropdown').on('hide.bs.dropdown', function() {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-  });
-
-
-
-  //toggle jobs section
-
-  function showjobs(hi){
-var p =document.querySelectorAll('.category');
-p[hi].classList.toggle("active");
-  }
-
-
-  //progressbar
-
-  function checkMe(input) {
-    const checkBoxes = document.querySelectorAll(".myCheckBox"+input);
-    const progress = document.querySelectorAll(".catheading-inner");
-    const checklistProgressInterval = 100 / checkBoxes.length;
-    let width = 0;
-    for(let i = 0; i < checkBoxes.length; i++){
-      if(checkBoxes[i].checked){
-        width += checklistProgressInterval;
-      }
-    }
-      progress[input].style.width = `${width}%`;
-  }
-
+function heightchange(){
+    jobs.classList.toggle("active");
+}
 
   // PWA
   if('serviceWorker' in navigator){

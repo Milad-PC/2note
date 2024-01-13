@@ -30,253 +30,238 @@
         <link rel="stylesheet" href="CSS/index.css">
         <link rel="stylesheet" href="CSS/maincss.css">
         <!--owl carousel-->
-        <link rel="stylesheet" type="text/css" href="JS/owl.carousel.min.css" />
-        <link rel="stylesheet" type="text/css" href="JS/owl.theme.default.min.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/owl.carousel.min.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/owl.theme.default.min.css" />
         <!--bootstrap-->
         <link rel="stylesheet" href="CSS/bootstrap-icons-v1-11.css">
         <link rel="stylesheet" href="CSS/bootstrap-icons-v1-10.css">
     </head>
 
     <body>
-        <div class="container w-100 vh-100 overflow-hidden">
-            <div class="container-inner w-100  overflow-scroll radius-20 p-2">
-              <div class="row heading w-100 radius-10">
-                <div class="col-4 v-center">
-                    <img class="w-100 center" src="IMG/favicon_128.png" alt="">
-                </div>
-                <div class="col-8">
-                   <div class="dropdown">
-                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
-                    </span>
-                    <ul class="dropdown-menu">
-                      <li>
-                            <input type="text" class="form-control p-3 yekan" id="NoteAdder" placeholder="نام دسته بندی خود را وارد کنید">
-                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید" onclick="AddToNote()">
-                      </li>
-
-                    </ul>
-                  </div>
-                </div>
-              </div>
-                <div class="row startjobs top-30">
-                    <!--this must be placed in foreach-->
-                    <div class="row category w-100  radius-10 top-20" >
-                        <div class="catheading row w-100 v-center">
-                            <div class="col-2">
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots "></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                      <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                    </ul>
-                                  </div>
-                            </div>
-                            <div class="col-7 v-center">
-                                <p class="yekan m-0" onclick="showjobs(0)">خرید خونه</p>
-                            </div>
-                            <div class="col-3">
-                                <div class="dropdown">
-                                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
-                                    </span>
-                                    <ul class="dropdown-menu">
-                                      <li>
-                                        <form action="">
-                                            <input type="text" class="form-control p-3 yekan" id="exampleFormControlInput1" placeholder="نام کار خود را وارد کنید">
-                                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید">
-                                        </form>
-                                      </li>
-                                    </ul>
-                                  </div>
-                            </div>
-                            <div class="catheading-inner radius-10"></div>
-                        </div>
-                        <div class="catbody row p-2 top-10">
-                            <!--this must be placed in -->
-                            <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
-                                </div>
-                            </div>
-                              <!--this must be placed in -->
-                              <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
-                                </div>
-                            </div>
-                              <!--this must be placed in -->
-                              <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox0" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(0)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
-                                </div>
-                            </div>
+      <div class="container w-100  vh-100 overflow-hidden  p-0">
+        <div class="container-wrap w-100  vh-100 overflow-hidden">
+            <!--start of section heading-->
+            <section class="heading w-100" data-role="header">
+                <div class="row heading-inside ">
+                    <div class="col-3 col-lg-3 v-center p-0">
+                        <img src="IMG/favicon_196.png" alt
+                            class="w-100 center">
+                    </div>
+                    <div class="col-8 v-center">
+                        <div class="w-100">
+                            <p class="moraba-b text-white m-0">خوش آمدیـــد!</p>
+                            <h1 class="moraba-heavy text-white m-0">اپلیکیشن
+                                <span class="text-warning">2note</span></h1>
                         </div>
                     </div>
-                      <!--this must be placed in foreach-->
-                      <div class="row category w-100  radius-10 top-20">
-                        <div class="catheading row w-100 v-center">
-                            <div class="col-2">
-                                <div class="dropdown">
-                                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots "></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                      <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                    </ul>
-                                  </div>
-                            </div>
-                            <div class="col-7 v-center">
-                                <p class="yekan m-0" onclick="showjobs(1)">خرید خونه</p>
-                            </div>
-                            <div class="col-3">
-                                <div class="dropdown">
-                                    <span class="btn v-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-plus-lg textwhite center textcenter"></i>
-                                    </span>
-                                    <ul class="dropdown-menu">
-                                      <li>
-                                        <form action="">
-                                            <input type="text" class="form-control p-3 yekan" id="exampleFormControlInput1" placeholder="نام کار خود را وارد کنید">
-                                            <input class="btn top-10 yekan w-100 p-3" type="submit" value="اضافه کنید">
-                                        </form>
-                                      </li>
-                
-                                    </ul>
-                                  </div>
-                            </div>
-                            <div class="catheading-inner radius-10"></div>
-
+                </div>
+            </section>
+            <!--end of section heading-->
+            <!--start of section carousel-->
+            <section class="jobs-carousel w-100 top-30 p-3" data-role="main">
+                <div class="row jobs-carousel-inside">
+                    <div class="col-4 p-0 top-2">
+                        <div
+                            class="job-plus w-100 bg-white radius-10 v-center">
+                            <i class="bi bi-plus-lg  center text-center"></i>
                         </div>
-                        <div class="catbody row p-2 top-10">
-                            <!--this must be placed in -->
-                            <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
+                    </div>
+                    <div class="col-8  p-0">
+                        <div class="owl-carousel owl-theme  right-10">
+                            <!--this must be placed in foreach-->
+                            <div class="item bg-light radius-10 v-center">
+                                <div class="w-100 p-2  m-1">
+                                    <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
+                                    <p class="moraba-b m-0 text-white"> 5
+                                        کار</p>
                                 </div>
                             </div>
-                              <!--this must be placed in -->
-                              <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
+                            <!--this must be placed in foreach-->
+                            <div class="item bg-light radius-10 v-center">
+                                <div class="w-100 p-2  m-1">
+                                    <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
+                                    <p class="moraba-b m-0 text-white"> 5
+                                        کار</p>
                                 </div>
                             </div>
-                              <!--this must be placed in -->
-                              <div class="job row p-3 radius-10 top-10">
-                                <div class="col-10 v-center">
-                                    <div class="form-check w-100">
-                                        <input class="form-check-input myCheckBox1" type="checkbox" value="" id="flexCheckDefault" onclick="checkMe(1)">
-                                        <label class="form-check-label dastnevis font-20 right-10" for="flexCheckDefault">
-                                          گوجه
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="dropdown">
-                                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-three-dots "></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i></a></li>
-                                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i></a></li>
-                                        </ul>
-                                      </div>
+                            <!--this must be placed in foreach-->
+                            <div class="item bg-light radius-10 v-center">
+                                <div class="w-100 p-2  m-1">
+                                    <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
+                                    <p class="moraba-b m-0 text-white"> 5
+                                        کار</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-             
-               
-            </div>
+            </section>
+            <!--end of section carousel-->
+            <!--start of section jobs-->
+            <section class="jobs w-100 top-10  p-0 bg-white trans">
+                <div class="row jobs-wrapper">
+                    <div class="line p-0  w-18 center radius-10 top-20 trans" onclick="heightchange()"></div>
+                    <h4 class="moraba-xb text-dark top-20 right-30">لیست کارهای شما</h4>
+                    <div class="row jobs-inside  p-0">                    
+                        <div class="job-list w-100">
+                            <ul class="w-100 p-1 m-0">
+                                <!--this must be placed in foreach-->
+                                <li class="w-100  p-1 top-20">
+                                    <div class="row">
+                                        <div class="col-8 v-center">
+                                            <div class="checkbox-wrapper-26">
+                                                <input type="checkbox"
+                                                    id="_checkbox-26">
+                                                <label for="_checkbox-26">
+                                                    <div class="tick_mark"></div>
+                                                </label>
+                                            </div>
+                                            <h5
+                                                class="moraba-b right-5 bottom-0">برم
+                                                خرید کنم</h5>
+                                        </div>
+                                        <div
+                                            class="col-4 v-center flex-row-reverse d-flex">
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-pen-fill font-22 right-10"></i></button>
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-trash-fill font-22 "></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--this must be placed in foreach-->
+                                <li class="w-100  p-1 top-20">
+                                    <div class="row">
+                                        <div class="col-8 v-center">
+                                            <div class="checkbox-wrapper-26">
+                                                <input type="checkbox"
+                                                    id="_checkbox-26">
+                                                <label for="_checkbox-26">
+                                                    <div class="tick_mark"></div>
+                                                </label>
+                                            </div>
+                                            <h5
+                                                class="moraba-b right-5 bottom-0">برم
+                                                خرید کنم</h5>
+                                        </div>
+                                        <div
+                                            class="col-4 v-center flex-row-reverse d-flex">
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-pen-fill font-22 right-10"></i></button>
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-trash-fill font-22 "></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                        
+                                <!--this must be placed in foreach-->
+                                <li class="w-100  p-1 top-20">
+                                    <div class="row">
+                                        <div class="col-8 v-center">
+                                            <div class="checkbox-wrapper-26">
+                                                <input type="checkbox"
+                                                    id="_checkbox-26">
+                                                <label for="_checkbox-26">
+                                                    <div class="tick_mark"></div>
+                                                </label>
+                                            </div>
+                                            <h5
+                                                class="moraba-b right-5 bottom-0">برم
+                                                خرید کنم</h5>
+                                        </div>
+                                        <div
+                                            class="col-4 v-center flex-row-reverse d-flex">
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-pen-fill font-22 right-10"></i></button>
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-trash-fill font-22 "></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--this must be placed in foreach-->
+                                <li class="w-100  p-1 top-20">
+                                    <div class="row">
+                                        <div class="col-8 v-center">
+                                            <div class="checkbox-wrapper-26">
+                                                <input type="checkbox"
+                                                    id="_checkbox-26">
+                                                <label for="_checkbox-26">
+                                                    <div class="tick_mark"></div>
+                                                </label>
+                                            </div>
+                                            <h5
+                                                class="moraba-b right-5 bottom-0">برم
+                                                خرید کنم</h5>
+                                        </div>
+                                        <div
+                                            class="col-4 v-center flex-row-reverse d-flex">
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-pen-fill font-22 right-10"></i></button>
+                                            <button
+                                                class="p-0 bg-transparent border-0 shadow-not left"><i
+                                                    class="bi bi-trash-fill font-22 "></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="plus-job">
+                        <button class="border-0 radius-5" data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-lg  center text-center text-white font-22"></i></button>
+                    </div>
+                     <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Modal Header</h4>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the modal.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+  
+</div>
+</div>
+                </div>
+       
+            </section>
+
+            <!--end of section- jobs-->
+
         </div>
+
+    </div>
         
       
         <script src="JS/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+        <script src="JS/owl.carousel.min.js"></script>
         <script src="JS/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
         <script src="JS/index.js"></script> 
+        <script>
+          $('.owl-carousel').owlCarousel({
+              rtl:true,
+              loop:false,
+              margin:5,
+              nav:false,
+             dots:0,
+         items:2
+          
+          })      
+                  </script>
     </body>
 </html>

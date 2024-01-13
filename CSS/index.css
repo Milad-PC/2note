@@ -1,175 +1,258 @@
 @font-face {
-    font-family: "dastnevis";
-    src: url("../FONT/danstevis.otf");
-    src: url("../FONT/danstevis.otf") format("embedded-opentype"),
-     url("../FONT/danstevis.otf") format("truetype");
+  font-family: "moraba-ul";
+  src: url("../font/Morabba-UltraLight.ttf");
 }
 @font-face {
-    font-family: "yekan";
-    src: url("../FONT/iranyekanwebblackfanum.eot");
-    src: url("../FONT/iranyekanwebblackfanum.eot?#iefix") format("embedded-opentype"),
-     url("../FONT/iranyekanwebblackfanum.ttf") format("truetype");
+  font-family: "moraba-l";
+  src: url("../font/Morabba-Light.ttf");
 }
-body{
-    overflow: hidden;
-    width: 100%;
+@font-face {
+  font-family: "moraba-m";
+  src: url("../font/Morabba-Medium.ttf");
 }
-/* container */
-.container{
-    width: 100%;
-background-color: white;
-padding: 0px !important;
-overflow: hidden;
+@font-face {
+  font-family: "moraba-sm";
+  src: url("../font/Morabba-SemiBold.ttf");
 }
-.container-inner{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+@font-face {
+  font-family: "moraba-b";
+  src: url("../font/Morabba-Bold.ttf");
 }
-/* heading part */
-.heading{
-    background-color:#371f17 ;
-    position: sticky;
-    padding: 10px;
-    z-index: 100;
+@font-face {
+  font-family: "moraba-xb";
+  src: url("../font/Morabba-ExtraBold.ttf");
 }
-.heading span{
-    width: 55px;
-    height: 55px;
-    display: flex;
-    background-color: #f5431a;
-    border-radius: 50px;
+@font-face {
+  font-family: "moraba-black";
+  src: url("../font/Morabba-Black.ttf");
 }
-.heading span::after{
-    display: none;
-}
-.heading span i{
-    font-size: 32px;
-}
-.heading .dropdown-menu,.category .col-3 .dropdown-menu{
-    width: 320px;
-    padding: 30px 15px;
-    box-shadow: 2px 2px 8px rgba(182, 182, 182, 0.627);
-    z-index: 1000;
-}
-.heading .dropdown-menu .btn ,.category .col-3 .dropdown-menu .btn{
-    background-color: #371f17;
-    color: white;
-}
-.heading .col-8{
-    display: flex;
-    justify-content: flex-end;
+@font-face {
+  font-family: "moraba-heavy";
+  src: url("../font/Morabba-Heavy.ttf");
 }
 
-/* category part */
-.category{
-    background-color: #F3F2F2;
-    padding: 0px;
-    box-shadow: 0px 4px 8px 0px #D6DADE;
-    transition: all ease 1s;
-}
-.category .col-3 {
-    display: flex;
-    justify-content: flex-end;
-}
-.category .col-3 span{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    background-color: #371f17;
-    border-radius: 50px;
-    padding: 0px;
-    margin: 5px;
-}
-.category .col-3 span i{
-    font-size: 32px;
-}
-.category p{
-    font-size: 20px;
-}
-.category .col-2 i{
-    color: #f5431a;
-    font-size: 24px;
-}
-.category .dropdown .btn::after{
-    display: none;
-}
-.category .col-2 .dropdown .btn{
-    padding: 0 !important;
-}
-.category .col-2 .dropdown .btn:focus{
-    outline: 0 !important;
-    border: none;
-    box-shadow: none !important;
-}
-.category .col-2 .dropdown ul{
-    padding: 5px;
-    border-radius: 20px;
-    border-color: #D60000;
-    width: fit-content;
-}
-
-.category .col-2 .dropdown ul li:first-child{
-    background-color: #fff8d3;
-    border-radius: 20px;
-}
-.category .col-2 .dropdown ul li:first-child i{
-color: rgb(255, 191, 0);
-}
-.category .col-2 .dropdown ul li:nth-child(2){
-background-color: #ff9d9d;
-border-radius: 20px;
-margin-top: 5px;
-}
-.category .col-2 .dropdown ul li:first-child i{
-    color: #D60000;
-}
-.category .catheading {
-    margin: 0px;
+.container-wrap{
+    background: linear-gradient(-140deg, #7f00ff, #e100ff 75%);
     position: relative;
 }
-.category .catheading  .col-7 p{
-    color: #371f17;
+.job-plus{
+    height: 100px;
+    box-shadow: 3px 3px 8px #620b518c;
 }
-.category .catbody {
-   display: none;
-   padding: 0px !important;
-   transition: all ease 1s;
-   overflow: hidden;
+.job-plus i{
+    font-size: 38px;
+    color: #7f00ff !important;
 }
-.category .catbody .job{
-    background-color: white;
-height: fit-content;
-box-shadow: 2px 2px 8px rgba(182, 182, 182, 0.627);
-}
-.category.active .catbody{
-   /* height: fit-content !important;*/
-   display: flex;
+.owl-carousel .owl-item{
+    padding: 2.5px;
 }
 
-.category .catbody .job .form-check-input[type=checkbox]{
-    width: 20px;
-    height: 20px;
-    border-radius: 7px;
+.owl-carousel .item{
+    height: 100px;
+    background: linear-gradient(-140deg, #e7446a, #f85c80 75%);
+    box-shadow: 1px 1px 5px #620b518c;
 }
-
-.category .catbody .job .form-check-input:checked{
-    background-color: red;
-    box-shadow: none;
+.owl-carousel .item h4{
+    text-shadow: 3px -2px 6px #430240;
 }
-.category .catbody  :has(input:checked){
-    background-color: #fcc7d1;
-}
-/*catheading-inner*/
-.catheading-inner{
+.jobs{
+    border-radius: 50px 50px 0px 0px;
     position: absolute;
-    height: 100%;
-    width: 0px;
+    bottom: 0;
     left: 0;
-    top: 0;
-    background-color: #e9ddcb;
-    z-index: 0;
-    padding: 0;
-    transition: all ease-in-out .8s;
+    z-index: 1000;
+    box-shadow: 0px -6px 11px #6a0870c2;
+}
+.jobs.active{
+    height: 85vh !important;
+}
+.jobs .jobs-wrapper{
+    position: relative;
+}
+.jobs .jobs-wrapper .plus-job{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top:40px;
+    left: 20px;
+
+}
+.jobs .jobs-wrapper .plus-job button{
+    background-color: #8f28e1;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.jobs .line{
+    height: 4px;
+    background-color: #454545;
+}
+.jobs .jobs-inside{
+    display: block;
+    overflow: scroll;
 }
 
+.jobs .job-list ul{
+    list-style: none;
+}
+
+.checkbox-wrapper-26 * {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-26 label {
+    --size: 25px;
+    --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+
+    position: relative;
+    display: block;
+    width: var(--size);
+    height: var(--size);
+  
+    background-color: #f72414;
+    border-radius: 50%;
+    box-shadow: 0 var(--shadow) #ffbeb8;
+    cursor: pointer;
+    transition: 0.2s ease transform, 0.2s ease background-color,
+      0.2s ease box-shadow;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .checkbox-wrapper-26 label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: calc(var(--size) * .7);
+    height: calc(var(--size) * .7);
+    margin: 0 auto;
+    background-color: #fff;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: inset 0 var(--shadow) #ffbeb8;
+    transition: 0.2s ease width, 0.2s ease height;
+  }
+
+  .checkbox-wrapper-26 label:hover:before {
+    width: calc(var(--size) * .55);
+    height: calc(var(--size) * .55);
+    box-shadow: inset 0 var(--shadow) #ff9d96;
+  }
+
+  .checkbox-wrapper-26 label:active {
+    transform: scale(0.9);
+  }
+
+  .checkbox-wrapper-26 .tick_mark {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: calc(var(--size) * -.05);
+    width: calc(var(--size) * .6);
+    height: calc(var(--size) * .6);
+    margin: 0 auto;
+    margin-left: calc(var(--size) * .14);
+    transform: rotateZ(-40deg);
+  }
+
+  .checkbox-wrapper-26 .tick_mark:before,
+  .checkbox-wrapper-26 .tick_mark:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.2s ease transform, 0.2s ease opacity;
+  }
+
+  .checkbox-wrapper-26 .tick_mark:before {
+    left: 0;
+    bottom: 0;
+    width: calc(var(--size) * .1);
+    height: calc(var(--size) * .3);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+    transform: translateY(calc(var(--size) * -.68));
+  }
+
+  .checkbox-wrapper-26 .tick_mark:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(var(--size) * .1);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+    transform: translateX(calc(var(--size) * .78));
+  }
+/*inja bbin check mishe*/
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label {
+    background-color: #07d410;
+    box-shadow: 0 var(--shadow) #92ff97;
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label:before {
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:before,
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:after {
+    transform: translate(0);
+    opacity: 1;
+  }
+/*ta inja check mishe */
+  .jobs  li .col-4 button:nth-child(2) i{
+    color: #f72414;
+  }
+  .jobs  li .col-4 button:nth-child(1) i{
+    color: #055e0a;
+  }
+
+  @media only screen and (min-width:1200px){
+    .container-wrap{
+      width: 26% !important;
+      height:95vh !important;
+      border-radius: 30px;
+      margin: 20px auto;
+      box-shadow: 3px 3px 10px #353535;
+
+    }
+
+.jobs-inside::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .jobs-inside {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  h1{
+    font-size: 28px !important;
+  }
+  }
+  @media only screen and (max-width:1200px) and (min-width:600px){
+    .container-wrap{
+        width: 36% !important;
+        height:95vh !important;
+        border-radius: 30px;
+        margin: 20px auto;
+        box-shadow: 3px 3px 10px #353535;
+  
+      }
+  
+  .jobs-inside::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .jobs-inside {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    h1{
+      font-size: 28px !important;
+    }
+  }
