@@ -2,257 +2,219 @@
   font-family: "moraba-ul";
   src: url("../font/Morabba-UltraLight.ttf");
 }
+
 @font-face {
   font-family: "moraba-l";
   src: url("../font/Morabba-Light.ttf");
 }
+
 @font-face {
   font-family: "moraba-m";
   src: url("../font/Morabba-Medium.ttf");
 }
+
 @font-face {
   font-family: "moraba-sm";
   src: url("../font/Morabba-SemiBold.ttf");
 }
+
 @font-face {
   font-family: "moraba-b";
   src: url("../font/Morabba-Bold.ttf");
 }
+
 @font-face {
   font-family: "moraba-xb";
   src: url("../font/Morabba-ExtraBold.ttf");
 }
+
 @font-face {
   font-family: "moraba-black";
   src: url("../font/Morabba-Black.ttf");
 }
+
 @font-face {
   font-family: "moraba-heavy";
   src: url("../font/Morabba-Heavy.ttf");
 }
 
-.container-wrap{
-    background: linear-gradient(-140deg, #7f00ff, #e100ff 75%);
-    position: relative;
-}
-.job-plus{
-    height: 100px;
-    box-shadow: 3px 3px 8px #620b518c;
-}
-.job-plus i{
-    font-size: 38px;
-    color: #7f00ff !important;
-}
-.owl-carousel .owl-item{
-    padding: 2.5px;
+.container-wrap {
+  background: linear-gradient(-140deg, #7f00ff, #e100ff 75%);
+  position: relative;
 }
 
-.owl-carousel .item{
-    height: 100px;
-    background: linear-gradient(-140deg, #e7446a, #f85c80 75%);
-    box-shadow: 1px 1px 5px #620b518c;
-}
-.owl-carousel .item h4{
-    text-shadow: 3px -2px 6px #430240;
-}
-.jobs{
-    border-radius: 50px 50px 0px 0px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0px -6px 11px #6a0870c2;
-}
-.jobs.active{
-    height: 85vh !important;
-}
-.jobs .jobs-wrapper{
-    position: relative;
-}
-.jobs .jobs-wrapper .plus-job{
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top:40px;
-    left: 20px;
-
-}
-.jobs .jobs-wrapper .plus-job button{
-    background-color: #8f28e1;
-    width: 100%;
-    aspect-ratio: 1/1;
-}
-.jobs .line{
-    height: 4px;
-    background-color: #454545;
-}
-.jobs .jobs-inside{
-    display: block;
-    overflow: scroll;
+.job-plus {
+  height: 100px;
+  box-shadow: 3px 3px 8px #620b518c;
 }
 
-.jobs .job-list ul{
-    list-style: none;
+.job-plus i {
+  font-size: 38px;
+  color: #7f00ff !important;
 }
 
-.checkbox-wrapper-26 * {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-  }
+.owl-carousel .owl-item {
+  padding: 2.5px;
+}
 
-  .checkbox-wrapper-26 input[type="checkbox"] {
-    display: none;
-  }
+.owl-carousel .item {
+  height: 100px;
+  background: linear-gradient(-140deg, #e7446a, #f85c80 75%);
+  box-shadow: 1px 1px 5px #620b518c;
+}
 
-  .checkbox-wrapper-26 label {
-    --size: 25px;
-    --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+.owl-carousel .item h4 {
+  text-shadow: 3px -2px 6px #430240;
+}
 
-    position: relative;
-    display: block;
-    width: var(--size);
-    height: var(--size);
-  
-    background-color: #f72414;
-    border-radius: 50%;
-    box-shadow: 0 var(--shadow) #ffbeb8;
-    cursor: pointer;
-    transition: 0.2s ease transform, 0.2s ease background-color,
-      0.2s ease box-shadow;
-    overflow: hidden;
-    z-index: 1;
-  }
+.jobs {
+  border-radius: 50px 50px 0px 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0px -6px 11px #6a0870c2;
+}
 
-  .checkbox-wrapper-26 label:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: calc(var(--size) * .7);
-    height: calc(var(--size) * .7);
-    margin: 0 auto;
-    background-color: #fff;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    box-shadow: inset 0 var(--shadow) #ffbeb8;
-    transition: 0.2s ease width, 0.2s ease height;
-  }
+.jobs.active {
+  height: 85vh !important;
+}
 
-  .checkbox-wrapper-26 label:hover:before {
-    width: calc(var(--size) * .55);
-    height: calc(var(--size) * .55);
-    box-shadow: inset 0 var(--shadow) #ff9d96;
-  }
+.jobs .jobs-wrapper {
+  position: relative;
+}
 
-  .checkbox-wrapper-26 label:active {
-    transform: scale(0.9);
-  }
+.jobs .jobs-wrapper .plus-job {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 40px;
+  left: 20px;
 
-  .checkbox-wrapper-26 .tick_mark {
-    position: absolute;
-    top: -1px;
-    right: 0;
-    left: calc(var(--size) * -.05);
-    width: calc(var(--size) * .6);
-    height: calc(var(--size) * .6);
-    margin: 0 auto;
-    margin-left: calc(var(--size) * .14);
-    transform: rotateZ(-40deg);
-  }
+}
 
-  .checkbox-wrapper-26 .tick_mark:before,
-  .checkbox-wrapper-26 .tick_mark:after {
-    content: "";
-    position: absolute;
-    background-color: #fff;
-    border-radius: 2px;
-    opacity: 0;
-    transition: 0.2s ease transform, 0.2s ease opacity;
-  }
+.jobs .jobs-wrapper .plus-job button {
+  background-color: #8f28e1;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
 
-  .checkbox-wrapper-26 .tick_mark:before {
-    left: 0;
-    bottom: 0;
-    width: calc(var(--size) * .1);
-    height: calc(var(--size) * .3);
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
-    transform: translateY(calc(var(--size) * -.68));
-  }
+.jobs .line {
+  height: 4px;
+  background-color: #454545;
+}
 
-  .checkbox-wrapper-26 .tick_mark:after {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: calc(var(--size) * .1);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-    transform: translateX(calc(var(--size) * .78));
-  }
-/*inja bbin check mishe*/
-  .checkbox-wrapper-26 input[type="checkbox"]:checked + label {
-    background-color: #07d410;
-    box-shadow: 0 var(--shadow) #92ff97;
-  }
+.jobs .jobs-inside {
+  display: block;
+  overflow: scroll;
+}
 
-  .checkbox-wrapper-26 input[type="checkbox"]:checked + label:before {
-    width: 0;
-    height: 0;
-  }
+.jobs .job-list ul {
+  list-style: none;
+}
 
-  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:before,
-  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:after {
-    transform: translate(0);
-    opacity: 1;
-  }
+.checkbox-wrapper-39 *,
+.checkbox-wrapper-39 *::before,
+.checkbox-wrapper-39 *::after {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-39 label {
+  display: block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper-39 input {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-39 input:checked~.checkbox {
+  transform: rotate(45deg);
+  width: 14px;
+  margin-left: 12px;
+  border-color: #24c78e;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0;
+}
+
+.checkbox-wrapper-39 .checkbox {
+  display: block;
+  width: inherit;
+  height: inherit;
+  border: 3px solid #434343;
+  border-radius: 6px;
+  transition: all 0.375s;
+}
+
 /*ta inja check mishe */
-  .jobs  li .col-4 button:nth-child(2) i{
-    color: #f72414;
+.jobs li .col-4 button:nth-child(2) i {
+  color: #f72414;
+}
+
+.jobs li .col-4 button:nth-child(1) i {
+  color: #ffbf00;
+}
+
+@media only screen and (min-width:1200px) {
+  .container-wrap {
+    width: 26% !important;
+    height: 95vh !important;
+    border-radius: 30px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 10px #353535;
+
   }
-  .jobs  li .col-4 button:nth-child(1) i{
-    color: #055e0a;
-  }
 
-  @media only screen and (min-width:1200px){
-    .container-wrap{
-      width: 26% !important;
-      height:95vh !important;
-      border-radius: 30px;
-      margin: 20px auto;
-      box-shadow: 3px 3px 10px #353535;
-
-    }
-
-.jobs-inside::-webkit-scrollbar {
+  .jobs-inside::-webkit-scrollbar {
     display: none;
   }
-  
+
   .jobs-inside {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
-  h1{
+
+  h1 {
     font-size: 28px !important;
   }
+}
+
+@media only screen and (max-width:1200px) and (min-width:600px) {
+  .container-wrap {
+    width: 36% !important;
+    height: 95vh !important;
+    border-radius: 30px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 10px #353535;
+
   }
-  @media only screen and (max-width:1200px) and (min-width:600px){
-    .container-wrap{
-        width: 36% !important;
-        height:95vh !important;
-        border-radius: 30px;
-        margin: 20px auto;
-        box-shadow: 3px 3px 10px #353535;
-  
-      }
-  
+
   .jobs-inside::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .jobs-inside {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-    h1{
-      font-size: 28px !important;
-    }
+    display: none;
   }
+
+  .jobs-inside {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  h1 {
+    font-size: 28px !important;
+  }
+}
+
+.jobs ul {
+  max-height: 50vh; /* Set a maximum height for the list */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  list-style-type: none; /* Remove default list bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0;
+}

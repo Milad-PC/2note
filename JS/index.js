@@ -6,6 +6,12 @@ jobs.style.height=pluss+"vh";
 
 function heightchange(){
     jobs.classList.toggle("active");
+    if(jobs.classList.contains("active")){
+        document.querySelector(".jobs ul").style.maxHeight=(90 -(mainheight))+"vh";
+    }
+    else{
+      document.querySelector(".jobs ul").style.maxHeight=(pluss - 10)+"vh";
+    }
 }
 
   // PWA
@@ -228,7 +234,8 @@ function AddToTasks(noteId,TaskName){
 }
 
 function ShowNotes(){
-  let elmnt = document.getElementById('startjobs');
+  let elmnt = document.querySelector('.job-list ul');
+  
 
 }
 function ShowTasks(){
