@@ -83,6 +83,7 @@ self.addEventListener('fetch',function(event){
 */
 // ========  3. Cache First , falling back to network
 self.addEventListener('fetch',function(event){
+    /*
     event.respondWith(
         caches.match(event.request)
         .then((res) => {
@@ -94,6 +95,7 @@ self.addEventListener('fetch',function(event){
             })
         })
     );
+    */
 });
 
 // ========  4. Network First , falling back to Cache

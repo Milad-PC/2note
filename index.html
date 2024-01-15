@@ -35,9 +35,34 @@
     <!--bootstrap-->
     <link rel="stylesheet" href="CSS/bootstrap-icons-v1-11.css">
     <link rel="stylesheet" href="CSS/bootstrap-icons-v1-10.css">
+
+
+    <script src="JS/index.js"></script>
+
 </head>
 
 <body>
+  <!-- Modal  ADD Note-->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal  ADD Note-->
     <div class="container w-100  vh-100 overflow-hidden  p-0">
         <div class="container-wrap w-100  vh-100 overflow-hidden">
             <!--start of section heading-->
@@ -66,28 +91,16 @@
                         </div>
                     </div>
                     <div class="col-8  p-0">
-                        <div class="owl-carousel owl-theme  right-10">
+                        <div class="owl-carousel owl-theme  right-10" id="NoteLists">
                             <!--this must be placed in foreach-->
-                            <div class="item bg-light radius-10 v-center">
+                            <!--
+                            <div class="item bg-light radius-10 v-center" onclick="ShowTasks(Noteid)">
                                 <div class="w-100 p-2  m-1">
                                     <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
                                     <p class="moraba-b m-0 text-white"> 5 کار</p>
                                 </div>
                             </div>
-                            <!--this must be placed in foreach-->
-                            <div class="item bg-light radius-10 v-center">
-                                <div class="w-100 p-2  m-1">
-                                    <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
-                                    <p class="moraba-b m-0 text-white"> 5 کار</p>
-                                </div>
-                            </div>
-                            <!--this must be placed in foreach-->
-                            <div class="item bg-light radius-10 v-center">
-                                <div class="w-100 p-2  m-1">
-                                    <h4 class="moraba-xb m-0 text-white ">شرکت</h4>
-                                    <p class="moraba-b m-0 text-white"> 5 کار</p>
-                                </div>
-                            </div>
+                        -->
                         </div>
                     </div>
                 </div>
@@ -97,7 +110,7 @@
             <section class="jobs w-100 top-10  p-0 bg-white trans">
                 <div class="row jobs-wrapper">
                     <div class="line p-0  w-18 center radius-10 top-20 trans" onclick="heightchange()"></div>
-                    <h4 class="moraba-xb text-dark top-20 right-30">لیست کارهای شما</h4>
+                    <h4 class="moraba-xb text-dark top-20 right-30" id="TaskHeader">لیست کارهای شما</h4>
                     <div class="row jobs-inside  p-0">
                         <div class="job-list w-100">
                             <ul class="w-100 p-1 m-0">
@@ -111,7 +124,9 @@
                                                     <span class="checkbox"></span>
                                                 </label>
                                             </div>
-                                            <h5 class="moraba-b right-5 bottom-0 h6 text-muted text-decoration-line-through">برم خرید کنم</h5>
+                                            <h5
+                                                class="moraba-b right-5 bottom-0 h6 text-muted text-decoration-line-through">
+                                                برم خرید کنم</h5>
                                         </div>
                                         <div class="col-4 v-center flex-row-reverse d-flex">
                                             <button class="p-0 bg-transparent border-0 shadow-not left">
@@ -278,8 +293,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
                             </ul>
                         </div>
                     </div>
@@ -301,8 +316,22 @@
     <script src="JS/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="JS/owl.carousel.min.js"></script>
     <script src="JS/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="JS/index.js"></script>
     <script>
+        var jobs = document.querySelector(".jobs");
+        var headingheight = (document.querySelector(".heading").offsetHeight / window.innerHeight) * 100;
+        var mainheight = (document.querySelector(".jobs-carousel").offsetHeight / window.innerHeight) * 100;
+        var pluss = 100 - (mainheight + headingheight) - 10;
+        jobs.style.height = pluss + "vh";
+
+        function heightchange() {
+            jobs.classList.toggle("active");
+            if (jobs.classList.contains("active")) {
+                document.querySelector(".jobs ul").style.maxHeight = (90 - (mainheight)) + "vh";
+            }
+            else {
+                document.querySelector(".jobs ul").style.maxHeight = (pluss - 10) + "vh";
+            }
+        }
         $('.owl-carousel').owlCarousel({
             rtl: true,
             loop: false,
