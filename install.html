@@ -1,3 +1,4 @@
+<!-- Inja Khodeto Khaste Nakon Bia Inja https://github.com/Milad-PC/2note -->
 <!doctype html>
 <html lang="fa" dir="rtl">
 
@@ -30,20 +31,75 @@
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/maincss.css">
     <!--owl carousel-->
-    <link rel="stylesheet" type="text/css" href="JS/owl.carousel.min.css" />
-    <link rel="stylesheet" type="text/css" href="JS/owl.theme.default.min.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/owl.theme.default.min.css" />
     <!--bootstrap-->
     <link rel="stylesheet" href="CSS/bootstrap-icons-v1-11.css">
     <link rel="stylesheet" href="CSS/bootstrap-icons-v1-10.css">
+
+
+    <script src="JS/index.js"></script>
+
 </head>
 
 <body>
-    <h1>Please Install</h1>
-    <button onclick="ShowInstallPrompEvent()">Add To Home</button>
+    <div class="container w-100  vh-100 overflow-hidden  p-0">
+        <div class="container-wrap w-100  vh-100 overflow-hidden">
+            <!--start of section heading-->
+            <section class="heading w-100" data-role="header">
+                <div class="row heading-inside ">
+                    <div class="col-3 col-lg-3 v-center p-0">
+                        <img src="IMG/favicon_196.png" alt class="w-100 center">
+                    </div>
+                    <div class="col-8 v-center">
+                        <div class="w-100">
+                            <p class="moraba-b text-white m-0">خوش آمدیـــد!</p>
+                            <h1 class="moraba-heavy text-white m-0">اپلیکیشن
+                                <span class="text-warning">2note</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--end of section heading-->
+            <!--start of section carousel-->
+            <section class="jobs-carousel w-100 top-30 p-3" data-role="main">
+                <div class="row jobs-carousel-inside">
+                    <div class="col-4 p-0 top-2">
+                        <div class="job-plus w-100 bg-white radius-10 v-center" onclick="ShowInstallPrompEvent()">
+                            <i class="bi bi-plus-lg  center text-center"></i>
+                        </div>
+                    </div>
+                    <div class="col-8  p-0">
+                        <h1 class="moraba-xb text-white top-20 right-30">منو نصب کن</h4>
+                    </div>
+                </div>
+            </section>
+            <!--end of section carousel-->
+            <!--start of section jobs-->
+            <section class="jobs w-100 top-10  p-0 bg-white trans">
+                <div class="row jobs-wrapper">
+                    <div class="line p-0  w-18 center radius-10 top-20 trans" onclick="heightchange()"></div>
+                    <h4 class="moraba-xb text-dark top-20 right-30">طراحی توسط شرکت <a href="https://lightcompany.ir/">لایت کمپانی</a></h4>
+                    <div class="row jobs-inside  p-0">
+                        <div class="job-list w-100">
+                            <p class="moraba text-dark top-20 right-30">
+                                این برنامه برای برنامه ریزی راحت تر شما به صورت رایگان در اختیار شماست
+                            </p>
+                            <p class="moraba text-dark top-20 right-30">
+                                استفاده از این برنامه به منظور موافقت شما از شرایط و قوانین سایت و این برنامه و قبل از استفاده از آن به اصل حفظ محرمانگی دقت کرده و هیچ گونه حق کپی وجود ندارد.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="JS/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-    <script src="JS/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
-    <script src="JS/index.js"></script>
+            </section>
+
+            <!--end of section- jobs-->
+
+        </div>
+
+    </div>
     <script>
         let InstallPrompEvent;
         window.addEventListener("beforeinstallprompt", (event) => {
@@ -58,3 +114,9 @@
 </body>
 
 </html>
+<!--
+
+<h1>Please Install</h1>
+    <button >Add To Home</button>
+    
+    -->

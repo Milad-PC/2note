@@ -44,7 +44,8 @@
 
 <body>
     <!-- Modal  ADD Note-->
-    <div class="modal fade" id="NoteModal" tabindex="-1" role="dialog" aria-labelledby="NoteModalTitle" aria-hidden="true">
+    <div class="modal fade" id="NoteModal" tabindex="-1" role="dialog" aria-labelledby="NoteModalTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,7 +56,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="HideNoteModal()">خروج</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="HideNoteModal()">خروج</button>
                     <button type="button" class="btn btn-success" onclick="AddNewNoteModal()">ثبت</button>
                 </div>
             </div>
@@ -63,7 +65,8 @@
     </div>
     <!-- End Modal  ADD Note-->
     <!-- Modal  ADD Task-->
-    <div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="TaskModalTitle" aria-hidden="true">
+    <div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="TaskModalTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,13 +77,35 @@
                     <input type="hidden" id="NoteCatIdInput" value="0">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="HideTaskModal()">خروج</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="HideTaskModal()">خروج</button>
                     <button type="button" class="btn btn-success" onclick="AddNewTaskModal()">ثبت</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Modal  ADD Task-->
+    <!-- Modal UPDATE Task-->
+    <div class="modal fade" id="UpdateTaskModal" tabindex="-1" role="dialog" aria-labelledby="UpdateTaskModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="UpdateTaskModalLongTitle">افزودن دسته</h5>
+                </div>
+                <div class="modal-body">
+                    <input placeholder="متن جدید رو وارد کنید" type="text" id="UpdateTaskInput" class="form-control">
+                    <input type="hidden" id="UpdateTaskIdInput" value="0">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="HideUpdateTaskModal()">خروج</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateTaskModal()">ثبت</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal UPDATE Task-->
     <div class="container w-100  vh-100 overflow-hidden  p-0">
         <div class="container-wrap w-100  vh-100 overflow-hidden">
             <!--start of section heading-->
@@ -317,7 +342,8 @@
                         </div>
                     </div>
                     <div class="plus-job">
-                        <button class="border-0 radius-5" data-toggle="modal" data-target="#TaskModal" onclick="showTaskModal()">
+                        <button class="border-0 radius-5" data-toggle="modal" data-target="#TaskModal"
+                            onclick="showTaskModal()">
                             <i class="bi bi-plus-lg  center text-center text-white font-22"></i>
                         </button>
                     </div>
@@ -350,51 +376,6 @@
             else {
                 document.querySelector(".jobs ul").style.maxHeight = (pluss - 10) + "vh";
             }
-        }
-        $('.owl-carousel').owlCarousel({
-            rtl: true,
-            loop: false,
-            margin: 5,
-            nav: false,
-            dots: 0,
-            items: 2
-        });
-        function showNoteModal(){
-            $('#NoteModal').modal('show');
-        }
-        function HideNoteModal(){
-            $('#NoteModal').modal('hide');
-        }
-        function AddNewNoteModal(){
-            let src = document.getElementById('AddNoteInput').value;
-            if(src == ""){
-                alert("لطفا متن خود را وارد کنید");
-                return;
-            }
-            AddNote(src);
-            HideNoteModal();
-            location.reload();
-        }
-        function showTaskModal(){
-            $('#TaskModal').modal('show');
-        }
-        function HideTaskModal(){
-            $('#TaskModal').modal('hide');
-        }
-        function AddNewTaskModal(){
-            let src = document.getElementById('AddTaskInput').value;
-            let nId = document.getElementById('NoteCatIdInput').value;
-            if(src == ""){
-                alert("لطفا متن خود را وارد کنید");
-                return;
-            }
-            if(nId == "0"){
-                alert("دسته انتخاب نشده است");
-                return;
-            }
-            AddTask(src,nId);
-            HideTaskModal();
-            location.reload();
         }
     </script>
 </body>

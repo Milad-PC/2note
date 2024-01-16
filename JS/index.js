@@ -41,7 +41,7 @@ dbReq.onsuccess = function (event) {
   db = event.target.result;
   getNote();
   ShowTasks(null);
-  
+
   console.log('Database opened successfully');
 };
 
@@ -55,9 +55,9 @@ dbReq.onupgradeneeded = function (event) {
 
 
 async function getNote() {
-  var tx = db.transaction(TABLE_NOTE, 'readonly');
-  var objectStore = tx.objectStore(TABLE_NOTE);
-  var data = [];
+  let tx = db.transaction(TABLE_NOTE, 'readonly');
+  let objectStore = tx.objectStore(TABLE_NOTE);
+  let data = [];
 
   return new Promise((resolve, reject) => {
     objectStore.openCursor().onsuccess = function (event) {
@@ -69,28 +69,36 @@ async function getNote() {
         console.log('All data read:', data);
         let elmnt = document.getElementById('NoteLists');
         for (let item in data) {
-          elmnt.innerHTML += '<div class="item bg-light radius-10 v-center" onclick="ShowTasks('+data[item].NoteId
-          +')"><div class="w-100 p-2  m-1"><h4 class="moraba-xb m-0 text-white ">'+data[item].Name
-          +'</h4></div></div>';
+          elmnt.innerHTML += '<div class="item bg-light radius-10 v-center" onclick="ShowTasks(' + data[item].NoteId
+            + ')"><div class="w-100 p-2  m-1"><h4 class="moraba-xb m-0 text-white ">' + data[item].Name
+            + '</h4></div></div>';
         }
         resolve(data);
+        $('.owl-carousel').owlCarousel({
+          rtl: true,
+          loop: false,
+          margin: 5,
+          nav: false,
+          dots: 0,
+          items: 2
+        });
       }
     };
     objectStore.openCursor().onerror = function (event) {
       reject(event);
     };
   });
-  
+
 }
 
 
 function AddNote(noteName) {
-  var note = {
+  let note = {
     "Name": noteName
   }
-  var tx = db.transaction(TABLE_NOTE, 'readwrite');
-  var store = tx.objectStore(TABLE_NOTE);
-  var request = store.add(note);
+  let tx = db.transaction(TABLE_NOTE, 'readwrite');
+  let store = tx.objectStore(TABLE_NOTE);
+  let request = store.add(note);
 
   request.onsuccess = function (event) {
     console.log('Note added to the database', event);
@@ -101,13 +109,13 @@ function AddNote(noteName) {
   };
 }
 function UpdateNote(noteId, noteName) {
-  var note = {
+  let note = {
     "NoteId": noteId,
     "Name": noteName
   }
-  var tx = db.transaction(TABLE_NOTE, 'readwrite');
-  var store = tx.objectStore(TABLE_NOTE);
-  var request = store.put(note);
+  let tx = db.transaction(TABLE_NOTE, 'readwrite');
+  let store = tx.objectStore(TABLE_NOTE);
+  let request = store.put(note);
 
   request.onsuccess = function (event) {
     console.log('Note Updated');
@@ -118,10 +126,10 @@ function UpdateNote(noteId, noteName) {
   };
 }
 function DeleteNote(noteId) {
-  var transaction = db.transaction(TABLE_NOTE, 'readwrite');
-  var objectStore = transaction.objectStore(TABLE_NOTE);
+  let transaction = db.transaction(TABLE_NOTE, 'readwrite');
+  let objectStore = transaction.objectStore(TABLE_NOTE);
 
-  var deleteRequest = objectStore.delete(noteId);
+  let deleteRequest = objectStore.delete(noteId);
   deleteRequest.onsuccess = function (event) {
     console.log('Note deleted successfully with key' + noteId);
   };
@@ -131,9 +139,9 @@ function DeleteNote(noteId) {
 //Task Repository
 //TaskId,NoteId,DateCreate,Checked,Name
 function getTask(Noteid) {
-  var transaction = db.transaction(TABLE_TASK, 'readonly');
-  var objectStore = transaction.objectStore(TABLE_TASK);
-  var data = [];
+  let transaction = db.transaction(TABLE_TASK, 'readonly');
+  let objectStore = transaction.objectStore(TABLE_TASK);
+  let data = [];
 
   return new Promise((resolve, reject) => {
     objectStore.openCursor().onsuccess = function (event) {
@@ -176,47 +184,95 @@ function AddTask(TaskName, noteid) {
   };
 }
 
+function GetTaskById(taskId) {
+  let transaction = db.transaction(TABLE_TASK, 'readwrite');
+  let objectStore = transaction.objectStore(TABLE_TASK);
+  let data = objectStore.get(taskId);
+  return new Promise((resolve, reject) => {
+    data.onsuccess = function (event) {
+      console.log(event.target.result);
+      resolve(event.target.result);
+    };
+    data.onerror = function (event) {
+      console.log('Error reading database', event);
+      reject(event);
+    };
+  });
+}
+
 function UpdateTask(taskId, TaskName) {
-  var transaction = db.transaction(TABLE_TASK, 'readwrite');
-  var objectStore = transaction.objectStore(TABLE_TASK);
-
-  var getRequest = objectStore.get(taskId);
-  getRequest.onsuccess = function (event) {
-    var data = getRequest.result;
-    data.Name = TaskName;
-    data.DateCreate = new Date();
-
-
-    var updateRequest = objectStore.put(data, taskId);
-    updateRequest.onsuccess = function (event) {
-      console.log('Task updated successfully');
+  let transaction = db.transaction(TABLE_TASK, 'readwrite');
+  let objectStore = transaction.objectStore(TABLE_TASK);
+  let data = objectStore.get(parseInt(taskId));
+  let rslt = new Promise((resolve, reject) => {
+    data.onsuccess = function (event) {
+      console.log(event.target.result);
+      resolve(event.target.result);
+      return event.target.result;
     };
-    updateRequest.onerror = function (event) {
-      console.log('Error Updating Task', event);
+    data.onerror = function (event) {
+      console.log('Error reading database', event);
+      reject(event);
     };
-  };
+  });
 
+  return new Promise((resolve, reject) => {
+    rslt.then(function (data) {
+      console.log('Data : ', data);
+      data.Name = TaskName;
+      data.DateCreate = new Date();
+      var updateRequest = objectStore.put(data);
+      updateRequest.onsuccess = function (event) {
+        console.log('Task updated successfully');
+        resolve(data);
+      };
+      updateRequest.onerror = function (event) {
+        console.log('Error Updating Task', event);
+        reject(event);
+      };
+    });
+    rslt.catch(function (err) {
+      console.log('Error in UpdateTask', err);
+      reject(err);
+    });
+  });
 }
 
 function CheckTask(taskId) {
-  var transaction = db.transaction(TABLE_TASK, 'readwrite');
-  var objectStore = transaction.objectStore(TABLE_TASK);
-
-  var getRequest = objectStore.get(taskId);
-  getRequest.onsuccess = function (event) {
-    var data = getRequest.result;
-    data.Checked = !data.Checked;
-    data.DateCreate = new Date();
-
-    var updateRequest = objectStore.put(data, taskId);
-    updateRequest.onsuccess = function (event) {
-      console.log('Task updated successfully');
+  let transaction = db.transaction(TABLE_TASK, 'readwrite');
+  let objectStore = transaction.objectStore(TABLE_TASK);
+  let data = objectStore.get(parseInt(taskId));
+  let rslt = new Promise((resolve, reject) => {
+    data.onsuccess = function (event) {
+      console.log(event.target.result);
+      resolve(event.target.result);
+      return event.target.result;
     };
-    updateRequest.onerror = function (event) {
-      console.log('Error Updating Task', event);
+    data.onerror = function (event) {
+      console.log('Error reading database', event);
+      reject(event);
     };
-  };
+  });
 
+  return new Promise((resolve, reject) => {
+    rslt.then(function (data) {
+      console.log('Data : ', data);
+      data.Checked = !data.Checked;
+      var updateRequest = objectStore.put(data);
+      updateRequest.onsuccess = function (event) {
+        console.log('Task updated successfully');
+        resolve(data);
+      };
+      updateRequest.onerror = function (event) {
+        console.log('Error Updating Task', event);
+        reject(event);
+      };
+    });
+    rslt.catch(function (err) {
+      console.log('Error in UpdateTask', err);
+      reject(err);
+    });
+  });
 }
 
 function DeleteTask(taskId) {
@@ -252,23 +308,93 @@ function ShowTasks(Noteid) {
   }
   document.getElementById('NoteCatIdInput').value = Noteid;
   getTask(Noteid).then((data) => {
-    if(data.length === 0){
+    if (data.length === 0) {
       elmnt.innerHTML = 'فعلا چیزی برای نمایش وجود ندارد';
       document.getElementById('TaskHeader').innerHTML = 'این لیست خالی است';
       return;
     }
-    data.map(function (item){
+    elmnt.innerHTML = '';
+    data.map(function (item) {
       let Checked = '';
       let checkedText = '';
-      if(item.checked){
+      if (item.Checked) {
         Checked = 'checked';
         checkedText = 'h6 text-muted text-decoration-line-through';
       }
-      elmnt.innerHTML += '<li class="w-100  p-1 top-20"><div class="row"><div class="col-8 v-center"><div class="checkbox-wrapper-39"><label><input type="checkbox" '+Checked
-    +' onclick="CheckTask('+item.TaskId+')"/><span class="checkbox"></span></label></div><h5 class="moraba-b right-5 bottom-0 '+checkedText+'">'+item.Name
-    +'</h5></div><div class="col-4 v-center flex-row-reverse d-flex"><button onclick="EditTask('+item.TaskId+')" class="p-0 bg-transparent border-0 shadow-not left" onclick><i class="bi bi-pen-fill '+
-    'font-22 right-10"></i></button><button onclick="DeleteTask('+item.TaskId+')" class="p-0 bg-transparent border-0 shadow-not left"><i class="bi bi-trash-fill font-22 "></i></button></div></div></li>';
+      elmnt.innerHTML += '<li class="w-100  p-1 top-20"><div class="row"><div class="col-8 v-center"><div class="checkbox-wrapper-39"><label><input type="checkbox" ' + Checked
+        + ' onclick="CheckTask(' + item.TaskId + ')"/><span class="checkbox"></span></label></div><h5 class="moraba-b right-5 bottom-0 ' + checkedText + '">' + item.Name
+        + '</h5></div><div class="col-4 v-center flex-row-reverse d-flex"><button onclick="showUpdateTaskModal(' + item.TaskId + ')" class="p-0 bg-transparent border-0 shadow-not left" onclick><i class="bi bi-pen-fill ' +
+        'font-22 right-10"></i></button><button onclick="DeleteTask(' + item.TaskId + ')" class="p-0 bg-transparent border-0 shadow-not left"><i class="bi bi-trash-fill font-22 "></i></button></div></div></li>';
     });
-    
+
   });
+}
+
+
+//Front End JS
+function showNoteModal() {
+  $('#NoteModal').modal('show');
+}
+function HideNoteModal() {
+  $('#NoteModal').modal('hide');
+}
+function AddNewNoteModal() {
+  let src = document.getElementById('AddNoteInput').value;
+  if (src == "") {
+    alert("لطفا متن خود را وارد کنید");
+    return;
+  }
+  AddNote(src);
+  HideNoteModal();
+  location.reload();
+}
+function showTaskModal() {
+  $('#TaskModal').modal('show');
+}
+function HideTaskModal() {
+  $('#TaskModal').modal('hide');
+}
+function AddNewTaskModal() {
+  let src = document.getElementById('AddTaskInput').value;
+  let nId = document.getElementById('NoteCatIdInput').value;
+  if (src == "") {
+    alert("لطفا متن خود را وارد کنید");
+    return;
+  }
+  if (nId == "0") {
+    alert("دسته انتخاب نشده است");
+    return;
+  }
+  AddTask(src, nId);
+  HideTaskModal();
+  location.reload();
+}
+
+function showUpdateTaskModal(taskId) {
+  document.getElementById('UpdateTaskIdInput').value = taskId;
+  $('#UpdateTaskModal').modal('show');
+}
+function HideUpdateTaskModal() {
+  document.getElementById('UpdateTaskIdInput').value = '0';
+  $('#UpdateTaskModal').modal('hide');
+}
+function UpdateTaskModal() {
+  let src = document.getElementById('UpdateTaskInput').value;
+  let nId = document.getElementById('UpdateTaskIdInput').value;
+  if (src == "") {
+    alert("لطفا متن خود را وارد کنید");
+    return;
+  }
+  if (nId == "0") {
+    alert("تسک انتخاب نشده است");
+    return;
+  }
+  UpdateTask(nId, src)
+    .then((evnt) => {
+      HideUpdateTaskModal();
+      location.reload();
+    })
+    .catch((evnt) => {
+      console.log(event);
+    });
 }

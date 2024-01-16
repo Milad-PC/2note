@@ -40,28 +40,7 @@ self.addEventListener('activate',function(event){
     );
     return self.clients.claim();
 });
-/*
-self.addEventListener('fetch',function(event){
-    const req = event.request;
-    event.respondWith(
-        caches.match(req)
-        .then((response) => {
-            return response || fetch(req)
-            .then((res) => {
-                caches.open(DYNAMIC_Cache_VERSION)
-                .then((cache) => {
-                    cache.put(req,res);
-                });
-                return res.clone();
-            })
-            .catch(function(err){
-                console.log('Error Inner Fetch');
-                console.log(err);
-            });
-        }).catch(console.error)
-    );
-});
-*/
+
 /*
     cache starategies
 */
@@ -83,7 +62,6 @@ self.addEventListener('fetch',function(event){
 */
 // ========  3. Cache First , falling back to network
 self.addEventListener('fetch',function(event){
-    /*
     event.respondWith(
         caches.match(event.request)
         .then((res) => {
@@ -95,7 +73,6 @@ self.addEventListener('fetch',function(event){
             })
         })
     );
-    */
 });
 
 // ========  4. Network First , falling back to Cache
