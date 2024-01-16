@@ -1,3 +1,4 @@
+<!-- Inja Khodeto Khaste Nakon Bia Inja https://github.com/Milad-PC/2note -->
 <!doctype html>
 <html lang="fa" dir="rtl">
 
@@ -42,27 +43,44 @@
 </head>
 
 <body>
-  <!-- Modal  ADD Note-->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Modal  ADD Note-->
+    <div class="modal fade" id="NoteModal" tabindex="-1" role="dialog" aria-labelledby="NoteModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="NoteModalLongTitle">افزودن دسته</h5>
+                </div>
+                <div class="modal-body">
+                    <input placeholder="نام دسته" type="text" id="AddNoteInput" class="form-control">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="HideNoteModal()">خروج</button>
+                    <button type="button" class="btn btn-success" onclick="AddNewNoteModal()">ثبت</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- End Modal  ADD Note-->
+    <!-- End Modal  ADD Note-->
+    <!-- Modal  ADD Task-->
+    <div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="TaskModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TaskModalLongTitle">افزودن دسته</h5>
+                </div>
+                <div class="modal-body">
+                    <input placeholder="چه کاری اضافه شه؟" type="text" id="AddTaskInput" class="form-control">
+                    <input type="hidden" id="NoteCatIdInput" value="0">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="HideTaskModal()">خروج</button>
+                    <button type="button" class="btn btn-success" onclick="AddNewTaskModal()">ثبت</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal  ADD Task-->
     <div class="container w-100  vh-100 overflow-hidden  p-0">
         <div class="container-wrap w-100  vh-100 overflow-hidden">
             <!--start of section heading-->
@@ -86,7 +104,7 @@
             <section class="jobs-carousel w-100 top-30 p-3" data-role="main">
                 <div class="row jobs-carousel-inside">
                     <div class="col-4 p-0 top-2">
-                        <div class="job-plus w-100 bg-white radius-10 v-center">
+                        <div class="job-plus w-100 bg-white radius-10 v-center" onclick="showNoteModal()">
                             <i class="bi bi-plus-lg  center text-center"></i>
                         </div>
                     </div>
@@ -299,8 +317,9 @@
                         </div>
                     </div>
                     <div class="plus-job">
-                        <button class="border-0 radius-5" data-toggle="modal" data-target="#myModal"><i
-                                class="bi bi-plus-lg  center text-center text-white font-22"></i></button>
+                        <button class="border-0 radius-5" data-toggle="modal" data-target="#TaskModal" onclick="showTaskModal()">
+                            <i class="bi bi-plus-lg  center text-center text-white font-22"></i>
+                        </button>
                     </div>
                     <!-- Modal -->
 
@@ -339,8 +358,44 @@
             nav: false,
             dots: 0,
             items: 2
-
         });
+        function showNoteModal(){
+            $('#NoteModal').modal('show');
+        }
+        function HideNoteModal(){
+            $('#NoteModal').modal('hide');
+        }
+        function AddNewNoteModal(){
+            let src = document.getElementById('AddNoteInput').value;
+            if(src == ""){
+                alert("لطفا متن خود را وارد کنید");
+                return;
+            }
+            AddNote(src);
+            HideNoteModal();
+            location.reload();
+        }
+        function showTaskModal(){
+            $('#TaskModal').modal('show');
+        }
+        function HideTaskModal(){
+            $('#TaskModal').modal('hide');
+        }
+        function AddNewTaskModal(){
+            let src = document.getElementById('AddTaskInput').value;
+            let nId = document.getElementById('NoteCatIdInput').value;
+            if(src == ""){
+                alert("لطفا متن خود را وارد کنید");
+                return;
+            }
+            if(nId == "0"){
+                alert("دسته انتخاب نشده است");
+                return;
+            }
+            AddTask(src,nId);
+            HideTaskModal();
+            location.reload();
+        }
     </script>
 </body>
 

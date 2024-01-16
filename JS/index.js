@@ -41,6 +41,7 @@ dbReq.onsuccess = function (event) {
   db = event.target.result;
   getNote();
   ShowTasks(null);
+  
   console.log('Database opened successfully');
 };
 
@@ -58,23 +59,28 @@ async function getNote() {
   var objectStore = tx.objectStore(TABLE_NOTE);
   var data = [];
 
-
-  objectStore.openCursor().onsuccess = function (event) {
-    var cursor = event.target.result;
-    if (cursor) {
-      data.push(cursor.value);
-      cursor.continue();
-    } else {
-      console.log('All data read:', data);
-      let elmnt = document.getElementById('NoteLists');
-      for (let item in data) {
-        elmnt.innerHTML += '<div class="item bg-light radius-10 v-center" onclick="ShowTasks('+data[item].NoteId
-        +')"><div class="w-100 p-2  m-1"><h4 class="moraba-xb m-0 text-white ">'+data[item].Name
-        +'</h4></div></div>';
+  return new Promise((resolve, reject) => {
+    objectStore.openCursor().onsuccess = function (event) {
+      var cursor = event.target.result;
+      if (cursor) {
+        data.push(cursor.value);
+        cursor.continue();
+      } else {
+        console.log('All data read:', data);
+        let elmnt = document.getElementById('NoteLists');
+        for (let item in data) {
+          elmnt.innerHTML += '<div class="item bg-light radius-10 v-center" onclick="ShowTasks('+data[item].NoteId
+          +')"><div class="w-100 p-2  m-1"><h4 class="moraba-xb m-0 text-white ">'+data[item].Name
+          +'</h4></div></div>';
+        }
+        resolve(data);
       }
-      return data;
-    }
-  };
+    };
+    objectStore.openCursor().onerror = function (event) {
+      reject(event);
+    };
+  });
+  
 }
 
 
@@ -129,18 +135,25 @@ function getTask(Noteid) {
   var objectStore = transaction.objectStore(TABLE_TASK);
   var data = [];
 
-  objectStore.openCursor().onsuccess = function (event) {
-    var cursor = event.target.result;
-    if (cursor) {
-      if (cursor.value.NoteId == Noteid) {
-        data.push(cursor.value);
+  return new Promise((resolve, reject) => {
+    objectStore.openCursor().onsuccess = function (event) {
+      var cursor = event.target.result;
+      if (cursor) {
+        if (cursor.value.NoteId == Noteid) {
+          data.push(cursor.value);
+        }
+        cursor.continue();
+      } else {
+        console.log('All data read:', data);
+        resolve(data);
       }
-      cursor.continue();
-    } else {
-      console.log('All data read:', data);
-      return data;
-    }
-  };
+    };
+    objectStore.openCursor().onerror = function (event) {
+      console.log('Error reading database', event);
+      reject(event);
+    };
+
+  });
 }
 
 function AddTask(TaskName, noteid) {
@@ -214,6 +227,7 @@ function DeleteTask(taskId) {
   deleteRequest.onsuccess = function (event) {
     console.log('Task deleted successfully with key' + taskId);
   };
+  location.reload();
 }
 
 function AddToNote() {
@@ -236,9 +250,25 @@ function ShowTasks(Noteid) {
     document.getElementById('TaskHeader').innerHTML = 'ابتدا لیست را انتخاب کنید';
     return;
   }
-  console.log(getTask(Noteid));
-  elmnt.innerHTML += '<li class="w-100  p-1 top-20"><div class="row"><div class="col-8 v-center"><div class="checkbox-wrapper-39"><label><input type="checkbox" '+Checked
-  +' /><span class="checkbox"></span></label></div><h5 class="moraba-b right-5 bottom-0 h6 text-muted text-decoration-line-through">'+item.name
-  +'</h5></div><div class="col-4 v-center flex-row-reverse d-flex"><button class="p-0 bg-transparent border-0 shadow-not left"><i class="bi bi-pen-fill '+
-  'font-22 right-10"></i></button><button class="p-0 bg-transparent border-0 shadow-not left"><i class="bi bi-trash-fill font-22 "></i></button></div></div></li>';
+  document.getElementById('NoteCatIdInput').value = Noteid;
+  getTask(Noteid).then((data) => {
+    if(data.length === 0){
+      elmnt.innerHTML = 'فعلا چیزی برای نمایش وجود ندارد';
+      document.getElementById('TaskHeader').innerHTML = 'این لیست خالی است';
+      return;
+    }
+    data.map(function (item){
+      let Checked = '';
+      let checkedText = '';
+      if(item.checked){
+        Checked = 'checked';
+        checkedText = 'h6 text-muted text-decoration-line-through';
+      }
+      elmnt.innerHTML += '<li class="w-100  p-1 top-20"><div class="row"><div class="col-8 v-center"><div class="checkbox-wrapper-39"><label><input type="checkbox" '+Checked
+    +' onclick="CheckTask('+item.TaskId+')"/><span class="checkbox"></span></label></div><h5 class="moraba-b right-5 bottom-0 '+checkedText+'">'+item.Name
+    +'</h5></div><div class="col-4 v-center flex-row-reverse d-flex"><button onclick="EditTask('+item.TaskId+')" class="p-0 bg-transparent border-0 shadow-not left" onclick><i class="bi bi-pen-fill '+
+    'font-22 right-10"></i></button><button onclick="DeleteTask('+item.TaskId+')" class="p-0 bg-transparent border-0 shadow-not left"><i class="bi bi-trash-fill font-22 "></i></button></div></div></li>';
+    });
+    
+  });
 }
