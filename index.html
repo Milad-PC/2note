@@ -342,9 +342,11 @@
                         </div>
                     </div>
                     <div class="plus-job">
-                        <button class="border-0 radius-5" data-toggle="modal" data-target="#TaskModal"
-                            onclick="showTaskModal()">
+                        <button class="border-0 radius-5" data-toggle="modal" data-target="#TaskModal" onclick="showTaskModal()">
                             <i class="bi bi-plus-lg  center text-center text-white font-22"></i>
+                        </button>
+                        <button class="border-0 radius-5 bg-red top-10" onclick="DeleteNote(document.getElementById('NoteCatIdInput').value)">
+                            <i class="bi bi-trash-fill  center text-center text-white font-22"></i>
                         </button>
                     </div>
                     <!-- Modal -->

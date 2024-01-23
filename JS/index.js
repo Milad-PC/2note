@@ -126,15 +126,22 @@ function UpdateNote(noteId, noteName) {
   };
 }
 function DeleteNote(noteId) {
+  if(noteId == 0){
+    console.log("Delete Note Canceled Because Note Id is 0");
+    return;
+  }
   let transaction = db.transaction(TABLE_NOTE, 'readwrite');
   let objectStore = transaction.objectStore(TABLE_NOTE);
 
   let deleteRequest = objectStore.delete(noteId);
   deleteRequest.onsuccess = function (event) {
-    console.log('Note deleted successfully with key' + noteId);
+    console.log('Note deleted successfully with key ' + noteId);
+    console.log(event);
+  };
+  deleteRequest.onerror = function (event) {
+    console.log('Error deleting Note', event);
   };
 }
-
 
 //Task Repository
 //TaskId,NoteId,DateCreate,Checked,Name
@@ -351,6 +358,7 @@ function AddNewNoteModal() {
 function showTaskModal() {
   $('#TaskModal').modal('show');
 }
+
 function HideTaskModal() {
   $('#TaskModal').modal('hide');
 }
@@ -367,7 +375,14 @@ function AddNewTaskModal() {
   }
   AddTask(src, nId);
   HideTaskModal();
-  location.reload();
+  let elmnt = document.querySelector('.job-list ul');
+
+  elmnt.innerHTML += '<li class="w-100  p-1 top-20"><div class="row"><div class="col-8 v-center"><div class="checkbox-wrapper-39"><label><input type="checkbox" '
+        + ' onclick="CheckTask(' + item.TaskId + ')"/><span class="checkbox"></span></label></div><h5 class="moraba-b right-5 bottom-0">' + src
+        + '</h5></div><div class="col-4 v-center flex-row-reverse d-flex"><button onclick="showUpdateTaskModal(0)"'+
+        ' class="p-0 bg-transparent border-0 shadow-not left" onclick><i class="bi bi-pen-fill ' +
+        'font-22 right-10"></i></button><button onclick="DeleteTask(0)" class="p-0 bg-transparent border-0 shadow-not left">'+
+        '<i class="bi bi-trash-fill font-22 "></i></button></div></div></li>';
 }
 
 function showUpdateTaskModal(taskId) {

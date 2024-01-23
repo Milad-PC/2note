@@ -1,5 +1,5 @@
-const STATIC_Cache_VERSION = 'static_1';
-const DYNAMIC_Cache_VERSION = 'Dynamic_1';
+const STATIC_Cache_VERSION = 'static_2';
+const DYNAMIC_Cache_VERSION = 'Dynamic_2';
 const STATIC_ASSESTS = [
     '/','/index.html','/install.html','/manifest.json','/JS/index.js',
     '/JS/jquery-3.7.1.min.js','/CSS/index.css','/CSS/maincss.css','/IMG/favicon.ico',

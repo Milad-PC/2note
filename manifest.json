@@ -7,7 +7,7 @@
     "start_url":"/index.html?utm_source=homescreen",
     "theme_color":"#fdc763",
     "background_color":"#fdc763",
-    "scope":".",
+    "scope":"/",
     "orientation":"portrait-primary",
     "display":"standalone",
     "icons":[
