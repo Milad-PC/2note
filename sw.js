@@ -107,4 +107,26 @@ self.addEventListener('fetch',function(event){
     );
 });
 */
+// ========  6. Cache And Network Race
+/*
+self.addEventListener('fetch',function(event){
+    const PromiseRace = new Promise((resolve,reject) => {
+        let firstReject = false;
+        const RejectOnce = () => {
+            if (firstReject) reject('No Responce');
+            else firstReject = true;
+        }
 
+        //Check Net
+        fetch(event.request)
+        .then(res => res.ok ? resolve(res):RejectOnce())
+        .catch(RejectOnce);
+
+        //Check Catche
+        caches.match(event.request)
+        .then(res => res.ok ? resolve(res):RejectOnce())
+        .catch(RejectOnce);
+    });
+    event.respondWith(PromiseRace);
+});
+*/
